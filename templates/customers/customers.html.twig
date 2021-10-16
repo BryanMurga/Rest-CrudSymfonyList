@@ -1,0 +1,47 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    Listado de Customers
+{% endblock %}
+
+{% block stylesheets %} {% endblock %}
+{% block body %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Customer Name</th>
+                <th>Contact Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Postal Code</th>
+                <th>Country</th>
+                <th>Credit Limit</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for customers in lista %}
+            <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ customers.customername }}</td>
+            <td> {{customers.contactlastname}} {{ customers.contactfirstname }}</td>
+            <td>{{ customers.phone }}</td>
+            <td>{{ customers.addressline1 }} {{ customers.addressline2 }}</td>
+            <td>{{ customers.city }}</td>
+            <td>{{ customers.state }}</td>
+            <td>{{ customers.postalcode }}</td>
+            <td>{{ customers.country }}</td>
+            <td>{{ customers.creditlimit }}</td>
+            <td>
+                <button class="btn btn-outline-primary">Update</button>
+                <button class="btn btn-outline-danger">Delete</button>
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table
+{% endblock %}
